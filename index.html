@@ -45,6 +45,40 @@
             margin-bottom: 30px;
         }
         
+        /* Support Level Legend */
+        .support-legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+        
+        .legend-badge {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .legend-badge.first-line {
+            background: #34c759;
+            color: white;
+        }
+        
+        .legend-badge.second-line {
+            background: #0071e3;
+            color: white;
+        }
+        
         /* Flow Navigation */
         .flow-nav {
             display: grid;
@@ -70,17 +104,17 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         
-        .flow-nav-btn.flow-1 { border-color: #0071e3; }
-        .flow-nav-btn.flow-1:hover { background: #e3f2fd; border-color: #0071e3; }
+        .flow-nav-btn.flow-1 { border-color: #34c759; }
+        .flow-nav-btn.flow-1:hover { background: #e8f5e9; border-color: #34c759; }
         
-        .flow-nav-btn.flow-2 { border-color: #ff9500; }
-        .flow-nav-btn.flow-2:hover { background: #fff9e6; border-color: #ff9500; }
+        .flow-nav-btn.flow-2 { border-color: #34c759; }
+        .flow-nav-btn.flow-2:hover { background: #e8f5e9; border-color: #34c759; }
         
         .flow-nav-btn.flow-3 { border-color: #34c759; }
         .flow-nav-btn.flow-3:hover { background: #e8f5e9; border-color: #34c759; }
         
-        .flow-nav-btn.flow-4 { border-color: #AF52DE; }
-        .flow-nav-btn.flow-4:hover { background: #f3e5f5; border-color: #AF52DE; }
+        .flow-nav-btn.flow-4 { border-color: #0071e3; }
+        .flow-nav-btn.flow-4:hover { background: #e3f2fd; border-color: #0071e3; }
         
         .flow-nav-number {
             font-size: 14px;
@@ -93,6 +127,29 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 1.3;
+        }
+        
+        .flow-nav-support-level {
+            margin-top: 8px;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .flow-nav-support-level.first {
+            background: #34c759;
+            color: white;
+        }
+        
+        .flow-nav-support-level.second {
+            background: #0071e3;
+            color: white;
+        }
+        
+        .flow-nav-support-level.mixed {
+            background: linear-gradient(90deg, #34c759 50%, #0071e3 50%);
+            color: white;
         }
         
         .flows-grid {
@@ -118,10 +175,17 @@
             color: #1d1d1f;
         }
         
-        .flow-1 .flow-title { border-bottom: 4px solid #0071e3; }
-        .flow-2 .flow-title { border-bottom: 4px solid #ff9500; }
-        .flow-3 .flow-title { border-bottom: 4px solid #34c759; }
-        .flow-4 .flow-title { border-bottom: 4px solid #AF52DE; }
+        /* Support level indicators in flow titles */
+        .flow-1 .flow-title { 
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, #34c759 30%, #0071e3 30%) 1;
+        }
+        .flow-2 .flow-title { border-bottom: 4px solid #34c759; }
+        .flow-3 .flow-title { 
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, #34c759 40%, #0071e3 40%) 1;
+        }
+        .flow-4 .flow-title { border-bottom: 4px solid #0071e3; }
         
         .step {
             margin-bottom: 16px;
@@ -142,16 +206,48 @@
         
         .step:last-child::after { display: none; }
         
+        /* First line support steps - Green */
+        .step.action.first-line { background: #e8f5e9; border-left: 5px solid #34c759; }
+        .step.check.first-line { background: #e8f5e9; border-left: 5px solid #34c759; }
+        
+        /* Second line support steps - Blue */
         .step.action { background: #e3f2fd; border-left: 5px solid #0071e3; }
         .step.check { background: #fff9e6; border-left: 5px solid #ffb800; }
         .step.escalation { background: #ffebee; border-left: 5px solid #ff3b30; }
         .step.complete { background: #e8f5e9; border-left: 5px solid #34c759; }
+        
+        /* Handoff marker */
+        .step.handoff {
+            background: linear-gradient(90deg, #e8f5e9 50%, #e3f2fd 50%);
+            border-left: 5px solid #ffb800;
+            border: 3px dashed #ffb800;
+        }
         
         .step-title {
             font-weight: 700;
             font-size: 16px;
             color: #1d1d1f;
             margin-bottom: 8px;
+        }
+        
+        .support-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        
+        .support-badge.first {
+            background: #34c759;
+            color: white;
+        }
+        
+        .support-badge.second {
+            background: #0071e3;
+            color: white;
         }
         
         .step-content {
@@ -211,6 +307,13 @@
             font-size: 14px;
         }
         
+        .highlight {
+            background: rgba(255, 204, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
         .legend {
             background: white;
             border-radius: 16px;
@@ -222,7 +325,7 @@
             gap: 24px;
         }
         
-        .legend-item {
+        .legend-item-bottom {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -231,13 +334,6 @@
         }
         
         .legend-icon { font-size: 20px; }
-        
-        .highlight {
-            background: rgba(255, 204, 0, 0.2);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
         
         .back-to-top {
             position: fixed;
@@ -283,27 +379,43 @@
 <body>
     <div class="container">
         <div class="header" id="top">
-            <img src="logo.jpg" alt="Giffy Logo" class="logo">
+            <img src="giffy-logo_groen_wit.png" alt="Giffy Logo" class="logo">
             <h1>Customer Support Flows</h1>
             <p class="subtitle">Operationele Flowcharts voor Support Medewerkers</p>
+            
+            <!-- Support Level Legend -->
+            <div class="support-legend">
+                <div class="legend-item">
+                    <span class="legend-badge first-line">1E LIJN</span>
+                    <span>Joy & Nelson</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-badge second-line">2E LIJN</span>
+                    <span>Specialisten</span>
+                </div>
+            </div>
             
             <!-- Flow Navigation -->
             <div class="flow-nav">
                 <a href="#flow1" class="flow-nav-btn flow-1">
                     <div class="flow-nav-number">FLOW 1</div>
                     <div class="flow-nav-title">Kaart Ontgrendelen / Niet Ontvangen</div>
+                    <span class="flow-nav-support-level mixed">1e + 2e lijn</span>
                 </a>
                 <a href="#flow2" class="flow-nav-btn flow-2">
                     <div class="flow-nav-number">FLOW 2</div>
-                    <div class="flow-nav-title">Haskoning Special Flow</div>
+                    <div class="flow-nav-title">Direct Gekochte Kaart Niet Ontvangen</div>
+                    <span class="flow-nav-support-level first">1e lijn</span>
                 </a>
                 <a href="#flow3" class="flow-nav-btn flow-3">
                     <div class="flow-nav-number">FLOW 3</div>
                     <div class="flow-nav-title">Kaart Wijzigen / Annuleren</div>
+                    <span class="flow-nav-support-level mixed">1e + 2e lijn</span>
                 </a>
                 <a href="#flow4" class="flow-nav-btn flow-4">
                     <div class="flow-nav-number">FLOW 4</div>
-                    <div class="flow-nav-title">Direct Gekochte Kaart Niet Ontvangen</div>
+                    <div class="flow-nav-title">Haskoning Special Flow</div>
+                    <span class="flow-nav-support-level second">2e lijn only</span>
                 </a>
             </div>
         </div>
@@ -313,15 +425,15 @@
             <div class="flow flow-1" id="flow1">
                 <div class="flow-title">Flow 1 – Kaart Ontgrendelen / Niet Ontvangen</div>
                 
-                <div class="step action">
-                    <div class="step-title">🔵 1. START</div>
+                <div class="step action first-line">
+                    <div class="step-title">🟢 1. START <span class="support-badge first">1e lijn</span></div>
                     <div class="step-content">Mail komt binnen</div>
                     <div class="step-details">Onderwerp: "Kaart kan niet ontgrendeld worden"</div>
                 </div>
                 
-                <div class="step check">
-                    <div class="step-title">🟡 2. CHECK CONTENT</div>
-                    <div class="step-content">Controleer aanwezigheid:</div>
+                <div class="step check first-line">
+                    <div class="step-title">🟢 2. VRAAG NAAR GEGEVENS EN ZET IN INTERCOM <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Verzamel en registreer:</div>
                     <ul class="step-list">
                         <li>✓ E-mailadres ontvanger</li>
                         <li>✓ Giffy code</li>
@@ -330,17 +442,27 @@
                     <div class="decisions">
                         <div class="decision">
                             <div class="decision-condition">➜ ❌ Info ontbreekt</div>
-                            <div class="decision-action">Vraag ontbrekende gegevens op → Wacht → Terug naar stap 2</div>
+                            <div class="decision-action">Vraag ontbrekende gegevens op</div>
                         </div>
                         <div class="decision">
                             <div class="decision-condition">➜ ✅ Alles compleet</div>
-                            <div class="decision-action">Ga naar stap 3</div>
+                            <div class="decision-action">→ Zet in Intercom<br>
+                            → Bevestig klant: "We nemen binnen 1 uur contact op via [email]"<br>
+                            → <strong>EINDE 1E LIJN</strong></div>
                         </div>
                     </div>
                 </div>
                 
+                <div class="step handoff">
+                    <div class="step-title">⚡ OVERDRACHT 1E → 2E LIJN</div>
+                    <div class="step-content">
+                        <strong>1e lijn (Joy/Nelson):</strong> Ticket aangemaakt in Intercom<br>
+                        <strong>2e lijn:</strong> Pakt ticket op en vervolgt hieronder →
+                    </div>
+                </div>
+                
                 <div class="step check">
-                    <div class="step-title">🟡 3. CHECK MANDRILL</div>
+                    <div class="step-title">🔵 3. CHECK MANDRILL <span class="support-badge second">2e lijn</span></div>
                     <div class="step-content">Zoek e-mailadres in Mandrill</div>
                     <div class="decisions">
                         <div class="decision">
@@ -355,7 +477,7 @@
                 </div>
                 
                 <div class="step check">
-                    <div class="step-title">🟡 4. MANDRILL STATUS</div>
+                    <div class="step-title">🔵 4. MANDRILL STATUS <span class="support-badge second">2e lijn</span></div>
                     <div class="decisions">
                         <div class="decision">
                             <div class="decision-condition">➜ 🟢 GROEN</div>
@@ -369,7 +491,7 @@
                 </div>
                 
                 <div class="step action">
-                    <div class="step-title">🔵 5. CHECK WOOCOMMERCE</div>
+                    <div class="step-title">🔵 5. CHECK WOOCOMMERCE <span class="support-badge second">2e lijn</span></div>
                     <div class="step-content">Zoek op Giffy-code</div>
                     <div class="decisions">
                         <div class="decision">
@@ -384,7 +506,7 @@
                 </div>
                 
                 <div class="step check">
-                    <div class="step-title">🟡 6. PRODUCT CHECK</div>
+                    <div class="step-title">🔵 6. PRODUCT CHECK <span class="support-badge second">2e lijn</span></div>
                     <div class="step-content">WooCommerce → Alle producten → Product ID</div>
                     <ul class="step-list">
                         <li>Product ID waarden</li>
@@ -414,85 +536,85 @@
                 </div>
             </div>
             
-            <!-- FLOW 2 -->
+            <!-- FLOW 2 (was Flow 4) -->
             <div class="flow flow-2" id="flow2">
-                <div class="flow-title">Flow 2 – Haskoning Special Flow</div>
+                <div class="flow-title">Flow 2 – Direct Gekochte Kaart Niet Ontvangen</div>
                 
-                <div class="step action">
-                    <div class="step-title">🔵 1. START</div>
-                    <div class="step-content">Mail binnen van Haskoning</div>
-                    <div class="step-details">(Kunnen niet online zelf bestellen)</div>
+                <div class="step action first-line">
+                    <div class="step-title">🟢 1. START <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Mail/telefoontje binnen:</div>
+                    <div class="step-details">"Direct gekochte kaart niet ontvangen"</div>
+                    <ul class="step-list">
+                        <li>Kanaal: <span class="highlight">Benify (IKEA)</span> of <span class="highlight">KPN Voor Jou</span></li>
+                        <li>Betaling via: <span class="highlight">Adyen</span></li>
+                    </ul>
                 </div>
                 
-                <div class="step check">
-                    <div class="step-title">🟡 2. CHECK INFO</div>
-                    <div class="step-content">Mail moet bevatten:</div>
+                <div class="step check first-line">
+                    <div class="step-title">🟢 2. VERZAMEL KLANTGEGEVENS EN EMAIL <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Vraag naar klant:</div>
                     <ul class="step-list">
-                        <li>Giftcode</li>
-                        <li>Gewenste kaart</li>
-                        <li>Waarde</li>
+                        <li>✓ Voornaam</li>
+                        <li>✓ <strong>Email adres</strong></li>
+                        <li>✓ Bedrag van aankoop (€)</li>
+                        <li>✓ Datum van aankoop</li>
                     </ul>
                     <div class="decisions">
                         <div class="decision">
-                            <div class="decision-condition">➜ ❌ Info ontbreekt</div>
-                            <div class="decision-action">Vraag op via Intercom/email</div>
+                            <div class="decision-condition">➜ ❌ Gegevens ontbreken</div>
+                            <div class="decision-action">Vraag ontbrekende info op</div>
                         </div>
                         <div class="decision">
-                            <div class="decision-condition">➜ ✅ Info compleet</div>
+                            <div class="decision-condition">➜ ✅ Gegevens compleet</div>
                             <div class="decision-action">Ga naar stap 3</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="step check">
-                    <div class="step-title">🟡 3. CHECK TRADE PORTAL</div>
-                    <div class="step-content">Giffy Portal: Heeft code juiste waarde?</div>
+                <div class="step action first-line">
+                    <div class="step-title">🟢 3. CHECK ADYEN TRANSACTIE <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Open <span class="highlight">Adyen Dashboard</span></div>
+                    <ul class="step-list">
+                        <li>Ga naar "Transacties" / "Payments"</li>
+                        <li>Zoek op <strong>voornaam</strong></li>
+                        <li>Filter op datum en bedrag (indien nodig)</li>
+                    </ul>
+                </div>
+                
+                <div class="step check first-line">
+                    <div class="step-title">🟢 4. CONTROLEER BETALINGSSTATUS <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Bekijk status van de transactie</div>
                     <div class="decisions">
                         <div class="decision">
-                            <div class="decision-condition">➜ ❌ Klopt niet</div>
-                            <div class="decision-action">Escalatie (technisch)</div>
+                            <div class="decision-condition">➜ 🔴 Status = NIET GOEDGEKEURD</div>
+                            <div class="decision-action">(Refused/Failed/Cancelled)<br>
+                            → Card issue / Betaling mislukt<br>
+                            → Informeer klant: "Je betaling is niet doorgekomen"<br>
+                            → Advies: Check bij bank of probeer andere betaalmethode<br>
+                            → <strong>EINDE 1E LIJN - Ga naar AFRONDING</strong></div>
                         </div>
                         <div class="decision">
-                            <div class="decision-condition">➜ ✅ Klopt wel</div>
-                            <div class="decision-action">Ga naar stap 4</div>
+                            <div class="decision-condition">➜ 🟢 Status = GOEDGEKEURD</div>
+                            <div class="decision-action">(Authorised/Captured)<br>
+                            → Betaling is OK<br>
+                            → Zet in Intercom<br>
+                            → Bevestig klant: "We nemen binnen 1 uur contact op via [email]"<br>
+                            → <strong>EINDE 1E LIJN</strong></div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="step action">
-                    <div class="step-title">🔵 4. BLOKKEER KAART</div>
-                    <div class="step-content">Kaart blokkeren in systeem</div>
-                </div>
-                
-                <div class="step action">
-                    <div class="step-title">🔵 5. GO GIFT SHEET</div>
-                    <div class="step-content">Handmatig invullen:</div>
-                    <ul class="step-list">
-                        <li>Brand (Bol.com)</li>
-                        <li>Waarde (€)</li>
-                        <li>Code (Giffy)</li>
-                    </ul>
-                </div>
-                
-                <div class="step action">
-                    <div class="step-title">🔵 6. INTERCOM UPDATE</div>
-                    <div class="step-content">Hashtag toevoegen:</div>
-                    <div class="step-details">#kaart-komt-eraan</div>
-                </div>
-                
-                <div class="step action">
-                    <div class="step-title">🔵 7. EIND VAN DAG</div>
-                    <div class="step-content">Auto-verzending via GoGift OF Bamboe Portal</div>
-                </div>
-                
                 <div class="step complete">
-                    <div class="step-title">🟢 AFRONDING</div>
+                    <div class="step-title">🟢 AFRONDING <span class="support-badge first">1e lijn</span></div>
                     <div class="step-content">Sluit case in Intercom</div>
                     <ul class="step-list">
-                        <li>Status: Verzonden</li>
-                        <li>Interne notitie</li>
+                        <li>Klantnaam toevoegen</li>
+                        <li>Email adres</li>
+                        <li>Status: Card Issue / Doorverwezen naar 2e lijn</li>
+                        <li>Kanaal: IKEA / KPN</li>
+                        <li>Actie: Klant geïnformeerd</li>
                     </ul>
-                    <div class="final-status">✅ FLOW EINDIGT</div>
+                    <div class="final-status">✅ FLOW EINDIGT (1E LIJN)</div>
                 </div>
             </div>
             
@@ -500,29 +622,59 @@
             <div class="flow flow-3" id="flow3">
                 <div class="flow-title">Flow 3 – Kaart Wijzigen / Annuleren</div>
                 
-                <div class="step action">
-                    <div class="step-title">🔵 1. START</div>
+                <div class="step action first-line">
+                    <div class="step-title">🟢 1. START <span class="support-badge first">1e lijn</span></div>
                     <div class="step-content">Mail binnen:</div>
                     <div class="step-details">"Kaart per ongeluk gekozen / niet meer gewenst"</div>
                 </div>
                 
-                <div class="step check">
-                    <div class="step-title">🟡 2. CHECK ONTGRENDELING</div>
-                    <div class="step-content">Is kaart al ontgrendeld?</div>
+                <div class="step check first-line">
+                    <div class="step-title">🟢 2. CHECK ONTGRENDELING + DETAILS <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Vraag naar:</div>
+                    <ul class="step-list">
+                        <li>✓ <strong>Giffy code</strong></li>
+                        <li>✓ <strong>Welke brand</strong> (bijv. Bol.com, Zalando)</li>
+                        <li>✓ <strong>Is de kaart al ontgrendeld?</strong></li>
+                    </ul>
                     <div class="decisions">
                         <div class="decision">
-                            <div class="decision-condition">➜ ✅ ONTGRENDELD</div>
-                            <div class="decision-action">❌ Geen wijziging mogelijk → Informeer klant → EINDE</div>
+                            <div class="decision-condition">➜ ✅ Kaart = ONTGRENDELD</div>
+                            <div class="decision-action">❌ <strong>Geen wijziging mogelijk</strong><br>
+                            → Informeer klant: "Helaas kunnen we een ontgrendelde kaart niet meer wijzigen"<br>
+                            → <strong>EINDE - Sluit case</strong></div>
                         </div>
                         <div class="decision">
-                            <div class="decision-condition">➜ ❌ NIET ONTGRENDELD</div>
+                            <div class="decision-condition">➜ ❌ Kaart = NIET ONTGRENDELD</div>
                             <div class="decision-action">✅ Wijziging mogelijk → Ga naar stap 3</div>
                         </div>
                     </div>
                 </div>
                 
+                <div class="step action first-line">
+                    <div class="step-title">🟢 3. ZET IN INTERCOM <span class="support-badge first">1e lijn</span></div>
+                    <div class="step-content">Registreer in Intercom:</div>
+                    <ul class="step-list">
+                        <li>Giffy code</li>
+                        <li>Brand</li>
+                        <li>Gewenste wijziging</li>
+                        <li>Klantgegevens</li>
+                    </ul>
+                    <div class="step-content" style="margin-top: 12px;">
+                        → Bevestig klant: "We nemen binnen 1 uur contact op"<br>
+                        → <strong>EINDE 1E LIJN</strong>
+                    </div>
+                </div>
+                
+                <div class="step handoff">
+                    <div class="step-title">⚡ OVERDRACHT 1E → 2E LIJN</div>
+                    <div class="step-content">
+                        <strong>1e lijn:</strong> Ticket aangemaakt<br>
+                        <strong>2e lijn:</strong> Vervolgt met blokkering →
+                    </div>
+                </div>
+                
                 <div class="step action">
-                    <div class="step-title">🔵 3. CONTACT CEES</div>
+                    <div class="step-title">🔵 4. CONTACT CEES <span class="support-badge second">2e lijn</span></div>
                     <div class="step-content">Verzoek: Team Coda blokkeer ontgrendelmail</div>
                     <ul class="step-list">
                         <li>Verstrek Giffy code</li>
@@ -531,7 +683,7 @@
                 </div>
                 
                 <div class="step check">
-                    <div class="step-title">🟡 4. BEVESTIG BLOKKERING</div>
+                    <div class="step-title">🔵 5. BEVESTIG BLOKKERING <span class="support-badge second">2e lijn</span></div>
                     <div class="step-content">Wacht op bevestiging Cees</div>
                     <div class="decisions">
                         <div class="decision">
@@ -540,13 +692,13 @@
                         </div>
                         <div class="decision">
                             <div class="decision-condition">➜ ✅ Geblokkeerd</div>
-                            <div class="decision-action">Ga naar stap 5</div>
+                            <div class="decision-action">Ga naar stap 6</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="step action">
-                    <div class="step-title">🔵 5. KIES OPLOSSING</div>
+                    <div class="step-title">🔵 6. KIES OPLOSSING <span class="support-badge second">2e lijn</span></div>
                     <div class="step-content">Bespreek met klant:</div>
                     <ul class="step-list">
                         <li>Optie 1: Nieuwe kaart versturen</li>
@@ -567,163 +719,82 @@
                 </div>
             </div>
             
-            <!-- FLOW 4 -->
+            <!-- FLOW 4 (was Flow 2) - Haskoning -->
             <div class="flow flow-4" id="flow4">
-                <div class="flow-title">Flow 4 – Direct Gekochte Kaart Niet Ontvangen</div>
+                <div class="flow-title">Flow 4 – Haskoning Special Flow</div>
                 
                 <div class="step action">
-                    <div class="step-title">🔵 1. START</div>
-                    <div class="step-content">Mail/telefoontje binnen:</div>
-                    <div class="step-details">"Direct gekochte kaart niet ontvangen"</div>
-                    <ul class="step-list">
-                        <li>Kanaal: <span class="highlight">Benify (IKEA)</span> of <span class="highlight">KPN Voor Jou</span></li>
-                        <li>Betaling via: <span class="highlight">Adyen</span></li>
-                    </ul>
+                    <div class="step-title">🔵 1. START <span class="support-badge second">2e lijn only</span></div>
+                    <div class="step-content">Mail binnen van Haskoning</div>
+                    <div class="step-details">(Kunnen niet online zelf bestellen - alleen 2e lijn)</div>
                 </div>
                 
                 <div class="step check">
-                    <div class="step-title">🟡 2. VERZAMEL KLANTGEGEVENS</div>
-                    <div class="step-content">Vraag naar klant:</div>
+                    <div class="step-title">🔵 2. CHECK INFO <span class="support-badge second">2e lijn</span></div>
+                    <div class="step-content">Mail moet bevatten:</div>
                     <ul class="step-list">
-                        <li>✓ Voornaam</li>
-                        <li>✓ Bedrag van aankoop (€)</li>
-                        <li>✓ Datum van aankoop</li>
+                        <li>Giftcode</li>
+                        <li>Gewenste kaart</li>
+                        <li>Waarde</li>
                     </ul>
                     <div class="decisions">
                         <div class="decision">
-                            <div class="decision-condition">➜ ❌ Gegevens ontbreken</div>
-                            <div class="decision-action">Vraag ontbrekende info op → Wacht → Terug naar stap 2</div>
+                            <div class="decision-condition">➜ ❌ Info ontbreekt</div>
+                            <div class="decision-action">Vraag op via Intercom/email</div>
                         </div>
                         <div class="decision">
-                            <div class="decision-condition">➜ ✅ Gegevens compleet</div>
+                            <div class="decision-condition">➜ ✅ Info compleet</div>
                             <div class="decision-action">Ga naar stap 3</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="step action">
-                    <div class="step-title">🔵 3. CHECK ADYEN TRANSACTIE</div>
-                    <div class="step-content">Open <span class="highlight">Adyen Dashboard</span></div>
-                    <ul class="step-list">
-                        <li>Ga naar "Transacties" / "Payments"</li>
-                        <li>Zoek op <strong>voornaam</strong></li>
-                        <li>Filter op datum en bedrag (indien nodig)</li>
-                    </ul>
-                </div>
-                
                 <div class="step check">
-                    <div class="step-title">🟡 4. CONTROLEER BETALINGSSTATUS</div>
-                    <div class="step-content">Bekijk status van de transactie</div>
+                    <div class="step-title">🔵 3. CHECK TRADE PORTAL <span class="support-badge second">2e lijn</span></div>
+                    <div class="step-content">Giffy Portal: Heeft code juiste waarde?</div>
                     <div class="decisions">
                         <div class="decision">
-                            <div class="decision-condition">➜ 🔴 Status = NIET GOEDGEKEURD</div>
-                            <div class="decision-action">(Refused/Failed/Cancelled)<br>
-                            → Card issue / Betaling mislukt<br>
-                            → Informeer klant: "Je betaling is niet doorgekomen"<br>
-                            → Advies: Check bij bank of probeer andere betaalmethode<br>
-                            → Ga naar AFRONDING</div>
+                            <div class="decision-condition">➜ ❌ Klopt niet</div>
+                            <div class="decision-action">Escalatie (technisch)</div>
                         </div>
                         <div class="decision">
-                            <div class="decision-condition">➜ 🟢 Status = GOEDGEKEURD</div>
-                            <div class="decision-action">(Authorised/Captured)<br>
-                            → Betaling is OK, probleem zit bij verzending<br>
-                            → Ga naar stap 5</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="step check">
-                    <div class="step-title">🟡 5. CHECK KLANT TYPE</div>
-                    <div class="step-content">Welke klant is het?</div>
-                    <div class="decisions">
-                        <div class="decision">
-                            <div class="decision-condition">➜ IKEA (Benify)</div>
-                            <div class="decision-action">Ga naar stap 6 - IKEA Landcheck</div>
-                        </div>
-                        <div class="decision">
-                            <div class="decision-condition">➜ KPN Voor Jou OF Andere</div>
-                            <div class="decision-action">Ga naar <strong>Flow 1</strong> (Standaard niet ontvangen)<br>
-                            → Check Mandrill → WooCommerce → etc.</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="step check">
-                    <div class="step-title">🟡 6. IKEA LANDCHECK</div>
-                    <div class="step-content"><em>(Alleen voor IKEA klanten)</em><br>Welk IKEA land?</div>
-                    <div class="decisions">
-                        <div class="decision">
-                            <div class="decision-condition">➜ IKEA Sweden / Denmark</div>
-                            <div class="decision-action">Platform: <span class="highlight">GoGift Portal</span><br>
-                            → Ga naar stap 7a</div>
-                        </div>
-                        <div class="decision">
-                            <div class="decision-condition">➜ IKEA Netherlands (NL)</div>
-                            <div class="decision-action">Platform: <span class="highlight">Trade Portal</span><br>
-                            → Ga naar stap 7b</div>
+                            <div class="decision-condition">➜ ✅ Klopt wel</div>
+                            <div class="decision-action">Ga naar stap 4</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="step action">
-                    <div class="step-title">🔵 7A. GOGIFT PORTAL CHECK</div>
-                    <div class="step-content"><em>(Voor IKEA SE/DK)</em></div>
-                    <ul class="step-list">
-                        <li>Open <span class="highlight">GoGift Portal</span></li>
-                        <li>Zoek op email adres of order referentie</li>
-                        <li>Check: Is de unlock email verzonden?</li>
-                    </ul>
-                    <div class="decisions">
-                        <div class="decision">
-                            <div class="decision-condition">➜ 🟢 Email verzonden</div>
-                            <div class="decision-action">→ Kaart moet in inbox staan<br>
-                            → Check met klant: Spam folder?<br>
-                            → Zo ja: Email opnieuw verzenden<br>
-                            → Ga naar AFRONDING</div>
-                        </div>
-                        <div class="decision">
-                            <div class="decision-condition">➜ 🔴 Email NIET verzonden</div>
-                            <div class="decision-action">→ Technisch probleem<br>
-                            → Escaleer naar GoGift support<br>
-                            → Ga naar AFRONDING</div>
-                        </div>
-                    </div>
+                    <div class="step-title">🔵 4. BLOKKEER KAART <span class="support-badge second">2e lijn</span></div>
+                    <div class="step-content">Kaart blokkeren in systeem</div>
                 </div>
                 
                 <div class="step action">
-                    <div class="step-title">🔵 7B. TRADE PORTAL CHECK</div>
-                    <div class="step-content"><em>(Voor IKEA NL)</em></div>
+                    <div class="step-title">🔵 5. GO GIFT SHEET <span class="support-badge second">2e lijn</span></div>
+                    <div class="step-content">Handmatig invullen:</div>
                     <ul class="step-list">
-                        <li>Open <span class="highlight">Trade Portal (Giffy)</span></li>
-                        <li>Zoek op email adres of code</li>
-                        <li>Check: Is de unlock email verzonden?</li>
+                        <li>Brand (Bol.com)</li>
+                        <li>Waarde (€)</li>
+                        <li>Code (Giffy)</li>
                     </ul>
-                    <div class="decisions">
-                        <div class="decision">
-                            <div class="decision-condition">➜ 🟢 Email verzonden</div>
-                            <div class="decision-action">→ Kaart moet in inbox staan<br>
-                            → Check met klant: Spam folder?<br>
-                            → Zo ja: Email opnieuw verzenden via Trade<br>
-                            → Ga naar AFRONDING</div>
-                        </div>
-                        <div class="decision">
-                            <div class="decision-condition">➜ 🔴 Email NIET verzonden</div>
-                            <div class="decision-action">→ Technisch probleem<br>
-                            → Check order status in Trade<br>
-                            → Indien nodig: handmatig versturen<br>
-                            → Ga naar AFRONDING</div>
-                        </div>
-                    </div>
+                </div>
+                
+                <div class="step action">
+                    <div class="step-title">🔵 6. INTERCOM UPDATE <span class="support-badge second">2e lijn</span></div>
+                    <div class="step-content">Hashtag toevoegen:</div>
+                    <div class="step-details">#kaart-komt-eraan</div>
+                </div>
+                
+                <div class="step action">
+                    <div class="step-title">🔵 7. EIND VAN DAG <span class="support-badge second">2e lijn</span></div>
+                    <div class="step-content">Auto-verzending via GoGift OF Bamboe Portal</div>
                 </div>
                 
                 <div class="step complete">
                     <div class="step-title">🟢 AFRONDING</div>
                     <div class="step-content">Sluit case in Intercom</div>
                     <ul class="step-list">
-                        <li>Klantnaam toevoegen</li>
-                        <li>Status: Opgelost / Card Issue / Escalatie</li>
-                        <li>Kanaal: IKEA / KPN</li>
-                        <li>Actie: Email verzonden / Betaling mislukt / Geëscaleerd</li>
+                        <li>Status: Verzonden</li>
                         <li>Interne notitie</li>
                     </ul>
                     <div class="final-status">✅ FLOW EINDIGT</div>
@@ -733,21 +804,17 @@
         
         <!-- Legend -->
         <div class="legend">
-            <div class="legend-item">
-                <span class="legend-icon">🔵</span>
-                <strong>Actie</strong> - Uitvoeren door support
-            </div>
-            <div class="legend-item">
-                <span class="legend-icon">🟡</span>
-                <strong>Check</strong> - Controleren / Beslissen
-            </div>
-            <div class="legend-item">
-                <span class="legend-icon">🔴</span>
-                <strong>Escalatie</strong> - Doorsturen
-            </div>
-            <div class="legend-item">
+            <div class="legend-item-bottom">
                 <span class="legend-icon">🟢</span>
-                <strong>Afronding</strong> - Case sluiten
+                <strong>1e Lijn (Joy & Nelson)</strong> - Intake & registratie
+            </div>
+            <div class="legend-item-bottom">
+                <span class="legend-icon">🔵</span>
+                <strong>2e Lijn (Specialisten)</strong> - Technische afhandeling
+            </div>
+            <div class="legend-item-bottom">
+                <span class="legend-icon">⚡</span>
+                <strong>Overdracht</strong> - Van 1e naar 2e lijn
             </div>
         </div>
         
@@ -755,7 +822,4 @@
         <a href="#top" class="back-to-top">↑</a>
     </div>
 </body>
-
 </html>
-
-
